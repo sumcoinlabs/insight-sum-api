@@ -22,6 +22,20 @@ The API endpoints will be available by default at: `http://localhost:3001/insigh
 
 **Note:** You can use an existing Litecoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `bitcoin.conf`, as well as a few other additional fields.
 
+## Running in production
+Express by default runs in a development mode that exposes stack traces for easy debugging.  When running in production make sure to set the environment appropriately.
+
+To do this, set an environment variable
+```
+export NODE_ENV=production
+```
+
+To make this setting permament make sure the environment variable persists by adding it to a login script.  For Bash run:
+```bashl
+echo "export NODE_ENV=production" >> ~/.bashrc
+source ~/.bashrc
+```
+
 ## Notes on Upgrading from v0.3
 
 The unspent outputs format now has `satoshis` and `height`:
