@@ -1,24 +1,24 @@
 # Insight API
 
-A Litecoin blockchain REST and web socket API service for [Litecore Node](https://github.com/litecoin-project/litecore-node).
+A Litecoin blockchain REST and web socket API service for [Litecore Node](https://github.com/sumcoin-project/sumcore-node).
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/litecoin-project/insight-lite-ui.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/sumcoin-project/insight-lite-ui.
 
 ## Getting Started
 
 ```bashl
-npm install -g litecore-node@latest
-litecore-node create mynode
+npm install -g sumcore-node@latest
+sumcore-node create mynode
 cd mynode
-litecore-node install insight-lite-api
-litecore-node start
+sumcore-node install insight-lite-api
+sumcore-node start
 ```
 
 The API endpoints will be available by default at: `http://localhost:3001/insight-lite-api/`
 
 ## Prerequisites
 
-- [Litecore Node 3.x](https://github.com/litecoin-project/litecore-node)
+- [Litecore Node 3.x](https://github.com/sumcoin-project/sumcore-node)
 
 **Note:** You can use an existing Litecoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `bitcoin.conf`, as well as a few other additional fields.
 
@@ -113,7 +113,7 @@ Caching support has not yet been added in the v0.3 upgrade.
 
 ## Query Rate Limit
 
-To protect the server, insight-lite-api has a built it query rate limiter. It can be configurable in `litecore-node.json` with:
+To protect the server, insight-lite-api has a built it query rate limiter. It can be configurable in `sumcore-node.json` with:
 ``` json
   "servicesConfig": {
     "insight-lite-api": {
