@@ -61,7 +61,7 @@
   "bitcoreNode": "lib",
   "dependencies": {
     "async": "*",
-    "sumcore-lib": "PitTxid/sumcore-lib",
+    "sumcore-lib": "sumcoinlabs/sumcore-lib",
     "sumcore-message": "sumcoinlabs/sumcore-message",
     "body-parser": "^1.13.3",
     "compression": "^1.6.1",
