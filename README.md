@@ -1,6 +1,6 @@
 # Insight API
 
-A Litecoin blockchain REST and web socket API service for [Litecore Node](https://github.com/sumcoinlabs/sumcore-node).
+A Sumcoin blockchain REST and web socket API service for [Sumcore Node](https://github.com/sumcoinlabs/sumcore-node).
 
 This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/sumcoinlabs/insight-sum-ui.
 
@@ -18,9 +18,9 @@ The API endpoints will be available by default at: `http://localhost:3001/insigh
 
 ## Prerequisites
 
-- [Litecore Node 3.x](https://github.com/sumcoinlabs/sumcore-node)
+- [Sumcore Node 3.x](https://github.com/sumcoinlabs/sumcore-node)
 
-**Note:** You can use an existing Litecoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `bitcoin.conf`, as well as a few other additional fields.
+**Note:** You can use an existing Sumcoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `bitcoin.conf`, as well as a few other additional fields.
 
 ## Running in production
 Express by default runs in a development mode that exposes stack traces for easy debugging.  When running in production make sure to set the environment appropriately.

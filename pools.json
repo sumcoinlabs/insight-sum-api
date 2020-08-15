@@ -39,8 +39,8 @@
 		]
 	},
 	{
-	  	"poolName": "LitecoinPool",
-	  	"url": "https://litecoinpool.org",
+	  	"poolName": "SumcoinPool",
+	  	"url": "https://sumcoinpool.org",
 	  	"searchStrings": [
 		  	"/LP/"
 		]
