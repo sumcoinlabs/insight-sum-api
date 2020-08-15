@@ -2,7 +2,7 @@
   "name": "insight-sum-api",
   "description": "A Litecoin blockchain REST and web socket API service for Litecore Node.",
   "version": "0.4.4",
-  "repository": "git://github.com/sumcoin-project/insight-sum-api.git",
+  "repository": "git://github.com/sumcoinlabs/insight-sum-api.git",
   "contributors": [
     {
       "name": "Gustavo Cortez",
@@ -38,9 +38,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/sumcoin-project/insight-lite-api/issues"
+    "url": "https://github.com/sumcoinlabs/insight-sum-api/issues"
   },
-  "homepage": "https://github.com/sumcoin-project/insight-lite-api",
+  "homepage": "https://github.com/sumcoinlabs/insight-sum-api",
   "license": "MIT",
   "keywords": [
     "insight",

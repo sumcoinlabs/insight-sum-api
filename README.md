@@ -1,8 +1,8 @@
 # Insight API
 
-A Litecoin blockchain REST and web socket API service for [Litecore Node](https://github.com/sumcoin-project/sumcore-node).
+A Litecoin blockchain REST and web socket API service for [Litecore Node](https://github.com/sumcoinlabs/sumcore-node).
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/sumcoin-project/insight-lite-ui.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/sumcoinlabs/insight-sum-ui.
 
 ## Getting Started
 
@@ -10,15 +10,15 @@ This is a backend-only service. If you're looking for the web frontend applicati
 npm install -g sumcore-node@latest
 sumcore-node create mynode
 cd mynode
-sumcore-node install insight-lite-api
+sumcore-node install insight-sum-api
 sumcore-node start
 ```
 
-The API endpoints will be available by default at: `http://localhost:3001/insight-lite-api/`
+The API endpoints will be available by default at: `http://localhost:3001/insight-sum-api/`
 
 ## Prerequisites
 
-- [Litecore Node 3.x](https://github.com/sumcoin-project/sumcore-node)
+- [Litecore Node 3.x](https://github.com/sumcoinlabs/sumcore-node)
 
 **Note:** You can use an existing Litecoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `bitcoin.conf`, as well as a few other additional fields.
 
@@ -113,22 +113,22 @@ Caching support has not yet been added in the v0.3 upgrade.
 
 ## Query Rate Limit
 
-To protect the server, insight-lite-api has a built it query rate limiter. It can be configurable in `sumcore-node.json` with:
+To protect the server, insight-sum-api has a built it query rate limiter. It can be configurable in `sumcore-node.json` with:
 ``` json
   "servicesConfig": {
-    "insight-lite-api": {
+    "insight-sum-api": {
       "rateLimiterOptions": {
         "whitelist": ["::ffff:127.0.0.1"]
       }
     }
   }
 ```
-With all the configuration options available: https://github.com/bitpay/insight-lite-api/blob/master/lib/ratelimiter.js#L10-17
+With all the configuration options available: https://github.com/bitpay/insight-sum-api/blob/master/lib/ratelimiter.js#L10-17
 
 Or disabled entirely with:
 ``` json
   "servicesConfig": {
-    "insight-lite-api": {
+    "insight-sum-api": {
       "disableRateLimiter": true
     }
   }
@@ -139,15 +139,15 @@ Or disabled entirely with:
 
 ### Block
 ```
-  /insight-lite-api/block/[:hash]
-  /insight-lite-api/block/00000000a967199a2fad0877433c93df785a8d8ce062e5f9b451cd1397bdbf62
+  /insight-sum-api/block/[:hash]
+  /insight-sum-api/block/00000000a967199a2fad0877433c93df785a8d8ce062e5f9b451cd1397bdbf62
 ```
 
 ### Block Index
 Get block hash by height
 ```
-  /insight-lite-api/block-index/[:height]
-  /insight-lite-api/block-index/0
+  /insight-sum-api/block-index/[:height]
+  /insight-sum-api/block-index/0
 ```
 This would return:
 ```
@@ -160,8 +160,8 @@ which is the hash of the Genesis block (0 height)
 
 ### Raw Block
 ```
-  /insight-lite-api/rawblock/[:blockHash]
-  /insight-lite-api/rawblock/[:blockHeight]
+  /insight-sum-api/rawblock/[:blockHash]
+  /insight-sum-api/rawblock/[:blockHeight]
 ```
 
 This would return:
@@ -175,7 +175,7 @@ This would return:
 
 Get block summaries by date:
 ```
-  /insight-lite-api/blocks?limit=3&blockDate=2016-04-22
+  /insight-sum-api/blocks?limit=3&blockDate=2016-04-22
 ```
 
 Example response:
@@ -209,31 +209,31 @@ Example response:
 
 ### Transaction
 ```
-  /insight-lite-api/tx/[:txid]
-  /insight-lite-api/tx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
-  /insight-lite-api/rawtx/[:rawid]
-  /insight-lite-api/rawtx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
+  /insight-sum-api/tx/[:txid]
+  /insight-sum-api/tx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
+  /insight-sum-api/rawtx/[:rawid]
+  /insight-sum-api/rawtx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
 ```
 
 ### Address
 ```
-  /insight-lite-api/addr/[:addr][?noTxList=1][&from=&to=]
-  /insight-lite-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?noTxList=1
-  /insight-lite-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?from=1000&to=2000
+  /insight-sum-api/addr/[:addr][?noTxList=1][&from=&to=]
+  /insight-sum-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?noTxList=1
+  /insight-sum-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?from=1000&to=2000
 ```
 
 ### Address Properties
 ```
-  /insight-lite-api/addr/[:addr]/balance
-  /insight-lite-api/addr/[:addr]/totalReceived
-  /insight-lite-api/addr/[:addr]/totalSent
-  /insight-lite-api/addr/[:addr]/unconfirmedBalance
+  /insight-sum-api/addr/[:addr]/balance
+  /insight-sum-api/addr/[:addr]/totalReceived
+  /insight-sum-api/addr/[:addr]/totalSent
+  /insight-sum-api/addr/[:addr]/unconfirmedBalance
 ```
 The response contains the value in Satoshis.
 
 ### Unspent Outputs
 ```
-  /insight-lite-api/addr/[:addr]/utxo
+  /insight-sum-api/addr/[:addr]/utxo
 ```
 Sample return:
 ```
@@ -264,13 +264,13 @@ Sample return:
 ### Unspent Outputs for Multiple Addresses
 GET method:
 ```
-  /insight-lite-api/addrs/[:addrs]/utxo
-  /insight-lite-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/utxo
+  /insight-sum-api/addrs/[:addrs]/utxo
+  /insight-sum-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/utxo
 ```
 
 POST method:
 ```
-  /insight-lite-api/addrs/utxo
+  /insight-sum-api/addrs/utxo
 ```
 
 POST params:
@@ -280,25 +280,25 @@ addrs: 2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f
 
 ### Transactions by Block
 ```
-  /insight-lite-api/txs/?block=HASH
-  /insight-lite-api/txs/?block=00000000fa6cf7367e50ad14eb0ca4737131f256fc4c5841fd3c3f140140e6b6
+  /insight-sum-api/txs/?block=HASH
+  /insight-sum-api/txs/?block=00000000fa6cf7367e50ad14eb0ca4737131f256fc4c5841fd3c3f140140e6b6
 ```
 ### Transactions by Address
 ```
-  /insight-lite-api/txs/?address=ADDR
-  /insight-lite-api/txs/?address=mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL
+  /insight-sum-api/txs/?address=ADDR
+  /insight-sum-api/txs/?address=mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL
 ```
 
 ### Transactions for Multiple Addresses
 GET method:
 ```
-  /insight-lite-api/addrs/[:addrs]/txs[?from=&to=]
-  /insight-lite-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/txs?from=0&to=20
+  /insight-sum-api/addrs/[:addrs]/txs[?from=&to=]
+  /insight-sum-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/txs?from=0&to=20
 ```
 
 POST method:
 ```
-  /insight-lite-api/addrs/txs
+  /insight-sum-api/addrs/txs
 ```
 
 POST params:
@@ -344,7 +344,7 @@ Note: if pagination params are not specified, the result is an array of transact
 ### Transaction Broadcasting
 POST method:
 ```
-  /insight-lite-api/tx/send
+  /insight-sum-api/tx/send
 ```
 POST params:
 ```
@@ -370,17 +370,17 @@ POST response:
 
 ### Historic Blockchain Data Sync Status
 ```
-  /insight-lite-api/sync
+  /insight-sum-api/sync
 ```
 
 ### Live Network P2P Data Sync Status
 ```
-  /insight-lite-api/peer
+  /insight-sum-api/peer
 ```
 
 ### Status of the Bitcoin Network
 ```
-  /insight-lite-api/status?q=xxx
+  /insight-sum-api/status?q=xxx
 ```
 
 Where "xxx" can be:
@@ -393,7 +393,7 @@ Where "xxx" can be:
 
 ### Utility Methods
 ```
-  /insight-lite-api/utils/estimatefee[?nbBlocks=2]
+  /insight-sum-api/utils/estimatefee[?nbBlocks=2]
 ```
 
 
