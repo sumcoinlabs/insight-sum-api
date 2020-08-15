@@ -1,7 +1,7 @@
 {
   "name": "insight-sum-api",
   "description": "A Sumcoin blockchain REST and web socket API service for Sumcore Node.",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "repository": "git://github.com/sumcoinlabs/insight-sum-api.git",
   "contributors": [
     {
